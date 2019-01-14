@@ -196,7 +196,7 @@ class PrerenderMiddleware
             $headers['X-Prerender-Token'] = $this->prerenderToken;
         }
     
-        $protocol = $request->isSecure() || $app['config']->get('prerender')['force_https'] ? 'https' : 'http';
+        $protocol = $request->isSecure() || $this->app['config']->get('prerender')['force_https'] ? 'https' : 'http';
         
     
         try {
