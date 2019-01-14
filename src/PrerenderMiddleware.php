@@ -192,6 +192,9 @@ class PrerenderMiddleware
         $headers = [
             'User-Agent' => $request->server->get('HTTP_USER_AGENT'),
         ];
+        
+        $verify = false;
+        
         if ($this->prerenderToken) {
             $headers['X-Prerender-Token'] = $this->prerenderToken;
         }
@@ -207,7 +210,7 @@ class PrerenderMiddleware
             if ($path == "/") {
                 $path = "";
             }
-            return $this->client->get($this->prerenderUri . '/' . urlencode($protocol.'://'.$host.'/'.$path), compact('headers'));
+            return $this->client->get($this->prerenderUri . '/' . urlencode($protocol.'://'.$host.'/'.$path), compact('headers','verify'));
         } catch (RequestException $exception) {
             if(!$this->returnSoftHttpCodes && !empty($exception->getResponse()) && $exception->getResponse()->getStatusCode() == 404) {
                 \App::abort(404);
