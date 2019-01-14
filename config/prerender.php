@@ -53,7 +53,7 @@
     |
     */
 
-    'force_https' => false,
+    'force_https' => env('PRERENDER_FORCE_HTTPS', false),
 
     /*
     |--------------------------------------------------------------------------
