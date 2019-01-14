@@ -42,6 +42,18 @@
     */
 
     'prerender_soft_http_codes' => env('PRERENDER_SOFT_HTTP_STATUS_CODES', true),
+    
+     /*
+    |--------------------------------------------------------------------------
+    | Force HTTPS Protocol
+    |--------------------------------------------------------------------------
+    |
+    | Useful if you webapplication is behind a loadbalancer that provides HTTPS,
+    | and where communication between the loadbalancer and app server uses HTTP.
+    |
+    */
+
+    'force_https' => false,
 
     /*
     |--------------------------------------------------------------------------
